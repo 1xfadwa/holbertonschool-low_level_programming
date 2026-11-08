@@ -10,7 +10,7 @@ In the instrumentation lab I took four clock() readings: at the start, after bui
 
 The baseline loop of 100000000 iterations took between 0.095361 and 0.099570 seconds across three runs, with an average of 0.097647 seconds. The spread between the fastest and slowest run was 4.3 percent of the average, which shows that identical deterministic work still produces slightly different timings.
 
-In the comparison program, the naive implementation averaged 2.208877 seconds, while the single-pass implementation averaged 0.000117 seconds. The naive implementation was therefore about 18879 times slower. This matches the code: the naive version checks n(n+1)/2 elements, about 1.25 billion checks for n = 50000, while the single-pass version checks each of the 50000 elements once, which is O(n^2) versus O(n).
+In the comparison program, the naive implementation averaged 2.208877 seconds, while the single-pass implementation averaged 0.000117 seconds. The naive implementation was therefore about 18815 times slower. This matches the code: the naive version checks n(n+1)/2 elements, about 1.25 billion checks for n = 50000, while the single-pass version checks each of the 50000 elements once, which is O(n^2) versus O(n).
 
 In the instrumentation lab, the average TOTAL was 0.000374 seconds, split into BUILD_DATA 0.000158, PROCESS 0.000141, and REDUCE 0.000075 seconds. The largest phase was BUILD_DATA.
 
@@ -30,4 +30,4 @@ Fourth, no optimization flags were used, so results describe unoptimized code.
 
 ## Practical Engineering Takeaway
 
-Algorithm choice mattered far more than run-to-run noise: the difference of about 18879 times between the two implementations is much larger than the 4.3 percent variation seen in the baseline. Developers should measure before optimizing, instrument each phase to find where time is spent (here BUILD_DATA was the largest phase), repeat runs under the same conditions, and report averages. Runtime is a useful first indicator of efficiency, but real energy conclusions require dedicated measurement tools.
+Algorithm choice mattered far more than run-to-run noise: the difference of about 18815 times between the two implementations is much larger than the 4.3 percent variation seen in the baseline. Developers should measure before optimizing, instrument each phase to find where time is spent (here BUILD_DATA was the largest phase), repeat runs under the same conditions, and report averages. Runtime is a useful first indicator of efficiency, but real energy conclusions require dedicated measurement tools.
