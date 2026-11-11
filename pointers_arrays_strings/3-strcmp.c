@@ -5,7 +5,7 @@
  * @s1: the first string
  * @s2: the second string
  *
- * Description: works like strcmp. The bytes are compared as unsigned values
+ * Description: the bytes are compared as unsigned values
  *
  * Return: 0 if the strings are equal, a negative number if s1 is less than
  * s2, a positive number if s1 is greater than s2
