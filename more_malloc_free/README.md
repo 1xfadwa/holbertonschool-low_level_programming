@@ -17,6 +17,11 @@ memory allocation failures in C.
 * **1-string_nconcat.c**: `char *string_nconcat(char *s1, char *s2, unsigned int n);`
   concatenates `s1` with the first `n` bytes of `s2`.
 
+* **2-calloc.c**: `void *_calloc(unsigned int nmemb, unsigned int size);`
+  allocates memory for an array and sets it to zero.
+* **3-array_range.c**: `int *array_range(int min, int max);`
+  creates an array of integers from `min` to `max` (included).
+
 ## Header
 
 * **main.h**: contains the prototypes of all the functions.
